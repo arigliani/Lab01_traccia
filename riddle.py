@@ -1,6 +1,6 @@
 import re
 import random
-class Riddle:
+class Riddle_class:
     def __init__(self, question, level, right_answer, answers):
         self.question = question
         self.level = level
@@ -26,7 +26,7 @@ def get_text(file_path):
                 level = riddle_elements[1]
                 right_answer = riddle_elements[2]
                 answers = [riddle_elements[2], riddle_elements[3], riddle_elements[4], riddle_elements[5]]
-                new_riddle = Riddle(question, level, right_answer, answers)
+                new_riddle = Riddle_class(question, level, right_answer, answers)
                 riddle_list.append(new_riddle)
 
             else:
@@ -37,3 +37,8 @@ def shuffle_raddle(txt):
     for i in txt:
         random.shuffle(i.answers)
     return txt
+
+def get_index_answere(right_answer, answers):
+        for i in range(len(answers)):
+            if right_answer == answers[i]:
+                return i
